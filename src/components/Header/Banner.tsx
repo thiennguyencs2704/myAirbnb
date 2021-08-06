@@ -15,7 +15,7 @@ const Banner = () => {
           objectPosition="left bottom"
         />
 
-        <div className="absolute top-[90px] left-1/2 ml-[-160px] text-center flex flex-col h-auto mx-auto">
+        <div className="absolute top-[90px] left-1/2 ml-[-140px] text-center flex flex-col h-auto mx-auto">
           <BannerInfo />
         </div>
       </div>
