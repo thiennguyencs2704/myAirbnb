@@ -1,8 +1,8 @@
 export default function Home() {
   return (
-    <div className="min-h-screen flex mx-auto">
+    <div className="flex min-h-screen mx-auto">
       <main className="mx-auto max-w-screen-2xl">
-        {/* <p>
+        <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industrys standard dummy text ever
           since the 1500s, when an unknown printer took a galley of type and
@@ -12,7 +12,7 @@ export default function Home() {
           the release of Letraset sheets containing Lorem Ipsum passages, and
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
-        </p> */}
+        </p>
       </main>
     </div>
   );

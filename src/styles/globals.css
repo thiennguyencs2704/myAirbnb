@@ -10,4 +10,8 @@
   .bookingInputContainer {
     @apply flex bg-white rounded-full border border-gray-300 shadow-lg items-center h-16 max-w-[850px] font-medium text-gray-700 text-sm;
   }
+
+  .authMenu {
+    @apply w-full h-10 pt-[7px] pl-3 hover:bg-gray-100;
+  }
 }

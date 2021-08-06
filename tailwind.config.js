@@ -7,9 +7,9 @@ module.exports = {
   darkMode: false,
   theme: {
     extend: {
-      // inset: {
-      //   "1/20": "5%",
-      // },
+      inset: {
+        "2/5": "40%",
+      },
       width: {
         "3/10": "30%",
         "7/30": "23.34%",
@@ -20,5 +20,8 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("@tailwindcss/line-clamp")],
+  plugins: [
+    require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
 };
