@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .bookingInputDetail {
+    @apply flex flex-col justify-center h-full pl-5 rounded-full hover:bg-gray-200 hover:cursor-pointer;
+  }
+
+  .bookingInputContainer {
+    @apply flex bg-white rounded-full border border-gray-300 shadow-lg items-center h-16 max-w-[850px] font-medium text-gray-700 text-sm;
+  }
+}
