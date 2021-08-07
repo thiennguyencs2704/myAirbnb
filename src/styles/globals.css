@@ -1,17 +1,36 @@
 @tailwind base;
+
+button {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
 @tailwind components;
 @tailwind utilities;
 
 @layer components {
+  /* For Header */
+  .authMenu {
+    @apply w-full h-10 pt-[7px] pl-3 hover:bg-gray-100;
+  }
+
   .bookingInputDetail {
-    @apply flex flex-col justify-center h-full pl-5 rounded-full hover:bg-gray-200 hover:cursor-pointer;
+    @apply flex flex-col justify-center h-full pl-6 rounded-full hover:bg-gray-200 hover:cursor-pointer;
+  }
+
+  .bookingInputDetailFocus {
+    @apply focus:bg-white focus:shadow-xl;
   }
 
   .bookingInputContainer {
     @apply flex bg-white rounded-full border border-gray-300 shadow-lg items-center h-16 max-w-[850px] font-medium text-gray-700 text-sm;
   }
 
-  .authMenu {
-    @apply w-full h-10 pt-[7px] pl-3 hover:bg-gray-100;
+  .bookingNav {
+    @apply after:absolute after:top-10 after:left-1/2 after:ml-[-10px] after:border after:w-5 after:transform after:duration-200;
+  }
+
+  .bookingNavHover {
+    @apply hover:after:border-white/50 hover:text-white/50 hover:after:w-2 hover:after:ml-[-6px];
   }
 }

@@ -26,7 +26,7 @@ const Header = () => {
     <header className="w-full">
       <div className="fixed left-0 z-10 flex justify-center w-full">
         <div
-          className={`absolute w-full h-20 ${
+          className={`absolute z-10 w-full h-20 ${
             isScrolled
               ? "bg-white duration-200"
               : "bg-gradient-to-b from-gray-900 to-transparent"

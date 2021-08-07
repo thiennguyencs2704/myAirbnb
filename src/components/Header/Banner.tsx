@@ -5,7 +5,7 @@ import BannerInfo from "./BannerInfo";
 const Banner = () => {
   return (
     <>
-      <div className="relative z-0 h-[700px] w-full md:hidden">
+      <div className="relative h-[700px] w-full md:hidden">
         <Image
           src={
             "https://a0.muscache.com/im/pictures/9754b160-759d-489b-92ad-8846fc94b73d.jpg?im_w=720"
@@ -30,7 +30,7 @@ const Banner = () => {
           objectPosition="right bottom"
         />
 
-        <div className="absolute -mt-3 top-1/2 left-10">
+        <div className="absolute mt-6 top-1/3 left-10">
           <BannerInfo />
         </div>
       </div>
@@ -45,7 +45,7 @@ const Banner = () => {
           objectPosition="right center"
         />
 
-        <div className="absolute top-2/5 lg:left-14 left-20">
+        <div className="absolute top-2/5 left-12">
           <BannerInfo />
         </div>
       </div>
@@ -60,7 +60,7 @@ const Banner = () => {
           objectPosition="right center"
         />
 
-        <div className="absolute top-1/3 left-24">
+        <div className="absolute top-1/3 left-20">
           <BannerInfo />
         </div>
       </div>

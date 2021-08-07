@@ -13,7 +13,7 @@ const AuthNav: React.FC = () => {
 
   return (
     <>
-      <div className="z-20 flex items-center pr-10 space-x-2 xl:pr-16 whitespace-nowrap">
+      <div className="absolute z-30 flex items-center space-x-2 right-12 xl:right-20 whitespace-nowrap">
         <button className="hover:bg-white/20 rounded-full h-[42px] px-3 -mr-3">
           <p>Become a host</p>
         </button>
@@ -34,7 +34,7 @@ const AuthNav: React.FC = () => {
       {showMenu && (
         <div
           ref={menuRef}
-          className="fixed shadow-lg rounded-xl right-10 top-[72px] w-[240px] h-auto text-gray-900 bg-white py-2"
+          className="fixed z-30 shadow-lg rounded-xl right-10 top-[72px] w-[240px] h-auto text-gray-900 bg-white py-2"
         >
           <div className="grid w-full grid-rows-2 pb-2">
             <a className="authMenu">Sign up</a>
