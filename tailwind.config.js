@@ -12,14 +12,23 @@ module.exports = {
       },
       width: {
         "1/5": "20%",
-        "3/10": "30%",
         "7/30": "23.34%",
+        "7/20": "35%",
         "9/10": "90%",
       },
     },
+    backgroundSize: {
+      auto: "auto",
+      cover: "cover",
+      contain: "contain",
+      "200%": "200%",
+    },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ["group-focus", "group-focus-within"],
+      transitionProperty: ["hover"],
+    },
   },
   plugins: [
     require("@tailwindcss/line-clamp"),

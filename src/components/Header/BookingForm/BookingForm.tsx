@@ -3,9 +3,9 @@ import Image from "next/image";
 import { SearchIcon } from "@heroicons/react/outline";
 import AuthNav from "./AuthNav";
 import BookingNav from "./BookingNav";
-import BookingPlaces from "./BookingPlaces";
+import BookingPlaces from "./BookingPlaces/BookingPlaces";
 import Link from "next/link";
-import BookingExperiences from "./BookingExperiences";
+import BookingExperiences from "./BookingExperiences/BookingExperiences";
 
 interface BookingFormProps {
   isScrolled: boolean;
@@ -14,13 +14,11 @@ interface BookingFormProps {
 const BookingForm: React.FC<BookingFormProps> = ({ isScrolled }) => {
   const [selectedNav, setSelectedNav] = useState(true);
 
-  const handlerSelectPlaces = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
+  const handlerSelectPlaces = () => {
     setSelectedNav(true);
   };
 
-  const handlerSelectExperiences = (e: { preventDefault: () => void }) => {
-    e.preventDefault();
+  const handlerSelectExperiences = () => {
     setSelectedNav(false);
   };
 
@@ -40,7 +38,7 @@ const BookingForm: React.FC<BookingFormProps> = ({ isScrolled }) => {
           isScrolled ? "text-gray-900" : "text-white"
         }`}
       >
-        <div className="absolute z-30 left-12 xl:left-20">
+        <div className="absolute z-30 left-12 xl:left-16">
           <Link href="/">
             <a>
               <Image
@@ -57,13 +55,16 @@ const BookingForm: React.FC<BookingFormProps> = ({ isScrolled }) => {
         </div>
 
         <div
-          className={`hidden md:inline fixed top-[17px] self-center h-12 md:-ml-48 lg:-ml-40 left-1/2 bookingInputContainer lg:w-80 md:w-64 transition-opacity ${
+          className={`hidden md:inline fixed top-[17px] self-center h-12 md:-ml-48 lg:-ml-40 left-1/2 bookingInput-Container lg:w-80 md:w-64 transition-opacity ${
             isScrolled
               ? "z-20 opacity-1 transition-opacity ease-out delay-150"
               : "z-0 opacity-0"
           }`}
         >
-          <button className="flex items-center justify-between w-full h-full">
+          <button
+            type="button"
+            className="flex items-center justify-between w-full h-full"
+          >
             <p className="ml-6 text-[15px] font-medium">Start your search</p>
             <div className="flex items-center justify-center w-9 h-9 bg-[#E42E59] rounded-full mr-2">
               <SearchIcon className="flex items-center w-5 h-5 text-white" />
@@ -79,9 +80,7 @@ const BookingForm: React.FC<BookingFormProps> = ({ isScrolled }) => {
           }`}
         >
           <form
-            className={`absolute left-0 flex flex-col items-center justify-center w-full ${
-              isScrolled ? null : ""
-            }`}
+            className={`group absolute left-0 flex flex-col items-center justify-center w-full`}
           >
             <BookingNav
               onSelectPlaces={handlerSelectPlaces}

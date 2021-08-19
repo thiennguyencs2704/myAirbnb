@@ -14,16 +14,32 @@ button {
     @apply w-full h-10 pt-[7px] pl-3 hover:bg-gray-100;
   }
 
-  .bookingInputDetail {
-    @apply flex flex-col justify-center h-full pl-6 rounded-full hover:bg-gray-200 hover:cursor-pointer;
-  }
-
-  .bookingInputDetailFocus {
-    @apply focus:bg-white focus:shadow-xl;
-  }
-
-  .bookingInputContainer {
+  .bookingInput-Container {
     @apply flex bg-white rounded-full border border-gray-300 shadow-lg items-center h-16 max-w-[850px] font-medium text-gray-700 text-sm;
+  }
+
+  .bookingInput-Detail {
+    @apply flex flex-col justify-center w-full h-full pl-6 rounded-full hover:cursor-pointer hover:bg-gray-200;
+  }
+
+  .bookingInput-Detail-Before {
+    @apply before:absolute before:z-0 hover:before:z-10 before:w-0 before:border-l before:left-[-1px] before:h-7 before:top-4;
+  }
+
+  .bookingInput-Detail-After {
+    @apply after:absolute after:z-0 hover:after:z-20 after:w-0 after:border-r after:right-[-1px] after:h-7 after:top-4;
+  }
+
+  .bookingInput-DetailFocus {
+    @apply bg-white shadow-xl hover:bg-white;
+  }
+
+  .bookingSearchBtn {
+    @apply absolute bg-gradient-to-r duration-200 from-[#E61E4D] via-[#E31C5F] to-[#D70466] h-12 rounded-full flex items-center justify-center text-white right-2;
+  }
+
+  .bookingSearchBtn-Before {
+    @apply hover:before:absolute hover:before:rounded-full hover:before:w-full hover:before:h-full hover:before:bg-gradient-to-r hover:before:from-[#E61E4D] hover:before:to-[#E61E4D] hover:before:transition-transform hover:before:duration-300 hover:before:ease-out  before:scale-0 hover:before:scale-100 hover:before:origin-left;
   }
 
   .bookingNav {
@@ -32,5 +48,10 @@ button {
 
   .bookingNavHover {
     @apply hover:after:border-white/50 hover:text-white/50 hover:after:w-2 hover:after:ml-[-6px];
+  }
+
+  /* For Input */
+  .removeInputWebkit {
+    @apply rounded-none appearance-none;
   }
 }

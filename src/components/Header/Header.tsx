@@ -1,26 +1,16 @@
-import React, { useState, useEffect } from "react";
-import Banner from "./Banner";
-import BookingForm from "./BookingForm";
+import useHeaderState from "../../hooks/useHeaderState";
+import Banner from "./Banner/Banner";
+import BookingForm from "./BookingForm/BookingForm";
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
+  const isScrolled = useHeaderState();
 
-  useEffect(() => {
-    const handlerScrollY = () => {
-      setScrollY(window.scrollY);
-      if (scrollY >= 20) {
-        setIsScrolled(true);
-      }
-      if (scrollY < 10) {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handlerScrollY);
-    return () => {
-      window.removeEventListener("scroll", handlerScrollY);
-    };
-  }, [isScrolled, scrollY]);
+  // import React, { useEffect, useRef } from "react";
+  // const renderCount = useRef(1);
+  // useEffect(() => {
+  //   renderCount.current += 1;
+  //   console.log("Render times:", renderCount.current);
+  // });
 
   return (
     <header className="w-full">

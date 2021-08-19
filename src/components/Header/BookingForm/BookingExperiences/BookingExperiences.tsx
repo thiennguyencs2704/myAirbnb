@@ -10,7 +10,7 @@ const BookingExperiences: React.FC<BookingExperiencesProps> = ({
 }) => {
   return (
     <div
-      className={`bookingInputContainer ${
+      className={`bookingInput-Container ${
         isScrolled
           ? "lg:w-80 md:w-64 h-12 transform whitespace-nowrap lg:-ml-0 -ml-32 -mt-16 duration-200"
           : "w-9/10 transform duration-200"

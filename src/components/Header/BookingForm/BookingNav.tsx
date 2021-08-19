@@ -13,7 +13,7 @@ const BookingNav: React.FC<BookingNavProps> = ({
 }) => {
   return (
     <div className="flex items-center h-20 whitespace-nowrap">
-      <button onClick={onSelectPlaces} className="relative p-3">
+      <button type="button" onClick={onSelectPlaces} className="relative p-3">
         <span
           className={`bookingNav ${
             selectedNav
@@ -25,7 +25,11 @@ const BookingNav: React.FC<BookingNavProps> = ({
         </span>
       </button>
 
-      <button onClick={onSelectExperiences} className="relative p-3">
+      <button
+        type="button"
+        onClick={onSelectExperiences}
+        className="relative p-3"
+      >
         <span
           className={`bookingNav ${
             !selectedNav
@@ -37,7 +41,7 @@ const BookingNav: React.FC<BookingNavProps> = ({
         </span>
       </button>
 
-      <button onClick={(e) => e.preventDefault()} className="relative p-3">
+      <button type="button" className="relative p-3">
         <span className="bookingNavHover bookingNav after:border-transparent">
           Online Experiences
         </span>
