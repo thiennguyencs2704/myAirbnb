@@ -1,6 +1,15 @@
+import React from "react";
+import Head from "next/head";
+
 export default function Home() {
   return (
     <div className="flex min-h-screen mx-auto">
+      <Head>
+        <script
+          async
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3p_GqRnG15VxQoZ7auxNg8dxbJOEEu94&libraries=places"
+        ></script>
+      </Head>
       <main className="mx-auto max-w-screen-2xl">
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -13,6 +22,7 @@ export default function Home() {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </p>
+        <p>Check</p>
       </main>
     </div>
   );

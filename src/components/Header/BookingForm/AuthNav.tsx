@@ -25,7 +25,7 @@ const AuthNav: React.FC = () => {
         <div ref={menuRef}>
           <button
             onClick={() => setShowMenu(!showMenu)}
-            className="h-[42px] w-[77px] flex items-center justify-between border border-gray-300 shadow-md rounded-full text-gray-500 bg-white"
+            className="h-[42px] w-[77px] flex items-center justify-between border border-gray-300 shadow-md rounded-full text-gray-500 bg-white hover:bg-gray-100"
           >
             <MenuIcon className="w-5 h-5 ml-2" />
             <UserCircleIcon className="h-9 w-9 mr-[6px]" />

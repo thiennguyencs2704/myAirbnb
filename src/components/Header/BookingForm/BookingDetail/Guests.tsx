@@ -1,18 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
-import { SearchIcon } from "@heroicons/react/outline";
 import { useClickAway } from "react-use";
 import { BookingInputDetailProps } from "./Location";
 import GuestInput from "./GuestInput";
-import { XIcon } from "@heroicons/react/solid";
+import ClearDataButton from "../../../UI/ClearDataButton";
 
 interface GuestProps extends BookingInputDetailProps {
   isFocused: boolean;
 }
 
 const Guests: React.FC<GuestProps> = ({
-  isScrolled,
-  focusBookingPlaces,
+  focusBookingDetail,
   isFocused,
+  showBookingForm,
 }) => {
   const guestRef = useRef<HTMLDivElement>(null);
   const [focusGuests, setFocusGuests] = useState(false);
@@ -56,8 +55,8 @@ const Guests: React.FC<GuestProps> = ({
 
   return (
     <div
-      onClick={focusBookingPlaces}
-      className="relative flex items-center justify-between h-full rounded-full w-7/20"
+      onClick={focusBookingDetail}
+      className="relative flex items-center justify-between w-full h-full rounded-full"
     >
       <div ref={guestRef} className="w-full h-full">
         <button
@@ -86,19 +85,18 @@ const Guests: React.FC<GuestProps> = ({
         </button>
 
         {adults !== 0 && focusGuests && (
-          <button
-            onClick={handlerClearGuest}
-            className="absolute flex items-center justify-center z-20 w-[26px] h-[26px] text-base bg-[#f0f0f0] rounded-full top-[17px] lg:right-32 md:right-[100px]"
-            type="button"
-          >
-            <XIcon className="w-[14px] h-[14px]" />
-          </button>
+          <ClearDataButton
+            handlerClearData={handlerClearGuest}
+            style={"lg:right-32 md:right-[100px]"}
+          />
         )}
 
         {focusGuests && (
           <div
-            className={`absolute mt-3 right-0 w-[395px] h-[245px] bg-white rounded-[30px] grid grid-rows-3 px-10 items-center py-2 ${
-              isScrolled ? "hidden" : ""
+            className={`absolute mt-3 right-0 bg-white rounded-[30px] grid grid-rows-3 px-10 items-center py-2 ${
+              showBookingForm
+                ? "w-[395px] h-[245px] duration-100"
+                : "w-0 h-0 invisible"
             }`}
           >
             <GuestInput
@@ -124,24 +122,6 @@ const Guests: React.FC<GuestProps> = ({
           </div>
         )}
       </div>
-
-      <button
-        type="button"
-        className={`bookingSearchBtn-Before bookingSearchBtn ${
-          isFocused ? "lg:w-[110px] md:w-[84px]" : "w-[48px]"
-        }`}
-      >
-        <SearchIcon
-          className={`z-20 w-5 h-5 ${isFocused ? "w-[18px] h-[18px]" : ""}`}
-        />
-        <p
-          className={`lg:ml-[6px] ml-[2px] text-sm lg:text-base font-medium z-20 ${
-            isFocused ? "inline" : "hidden"
-          }`}
-        >
-          Search
-        </p>
-      </button>
     </div>
   );
 };

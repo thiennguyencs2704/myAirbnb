@@ -15,7 +15,7 @@ button {
   }
 
   .bookingInput-Container {
-    @apply flex bg-white rounded-full border border-gray-300 shadow-lg items-center h-16 max-w-[850px] font-medium text-gray-700 text-sm;
+    @apply flex items-center h-16 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-full shadow-lg;
   }
 
   .bookingInput-Detail {
