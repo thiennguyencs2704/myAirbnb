@@ -31,10 +31,6 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
 }) => {
   const [calendarToggle, setCalendarToggle] = useState(true);
 
-  useEffect(() => {
-    console.log("toggle in useEffect");
-  }, [calendarToggle]);
-
   const handlerCalendarMode = () => {
     setCalendarToggle(true);
   };
@@ -46,11 +42,11 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
     handlerUpdateBookingDate({ startDate, endDate });
   };
 
-  // const renderCount = useRef(1);
-  // useEffect(() => {
-  //   renderCount.current += 1;
-  //   console.log("Render times:", renderCount.current);
-  // });
+  const renderCount = useRef(1);
+  useEffect(() => {
+    renderCount.current += 1;
+    console.log("Render times:", renderCount.current);
+  });
 
   return (
     <>

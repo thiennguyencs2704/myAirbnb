@@ -7,6 +7,9 @@ module.exports = {
   darkMode: false,
   theme: {
     extend: {
+      screens: {
+        semilg: "940px",
+      },
       inset: {
         "2/5": "40%",
       },

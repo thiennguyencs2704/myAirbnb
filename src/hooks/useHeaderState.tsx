@@ -3,6 +3,7 @@ import { useWindowScroll } from "react-use";
 
 const useHeaderState = () => {
   const [headerState, setHeaderState] = useState(false);
+  const [showBookingForm, setShowBookingForm] = useState(true);
 
   const { y } = useWindowScroll();
 
@@ -12,9 +13,13 @@ const useHeaderState = () => {
     } else {
       setHeaderState(false);
     }
-  }, [y, headerState]);
+  }, [y]);
 
-  return headerState;
+  useEffect(() => {
+    setShowBookingForm(!headerState);
+  }, [y]);
+
+  return { headerState, showBookingForm, setShowBookingForm };
 };
 
 export default useHeaderState;
