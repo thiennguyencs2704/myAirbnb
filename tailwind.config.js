@@ -7,18 +7,31 @@ module.exports = {
   darkMode: false,
   theme: {
     extend: {
-      // inset: {
-      //   "1/20": "5%",
-      // },
+      inset: {
+        "2/5": "40%",
+      },
       width: {
-        "3/10": "30%",
+        "1/5": "20%",
         "7/30": "23.34%",
+        "7/20": "35%",
         "9/10": "90%",
       },
     },
+    backgroundSize: {
+      auto: "auto",
+      cover: "cover",
+      contain: "contain",
+      "200%": "200%",
+    },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundColor: ["group-focus", "group-focus-within"],
+      transitionProperty: ["hover"],
+    },
   },
-  plugins: [require("@tailwindcss/line-clamp")],
+  plugins: [
+    require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
 };
