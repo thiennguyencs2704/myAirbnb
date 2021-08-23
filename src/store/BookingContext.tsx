@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 
 export interface BookingInfo {
   location?: string | null;
@@ -32,10 +32,6 @@ const BookingContextProvider: React.FC = ({ children }) => {
   const handlerClearGuests = () => {
     setBookingInfo({ ...bookingInfo, guests: 0 });
   };
-
-  useEffect(() => {
-    console.log("Check current info", bookingInfo);
-  }, [bookingInfo]);
 
   const contextValue: BookingContext = {
     bookingInfo,

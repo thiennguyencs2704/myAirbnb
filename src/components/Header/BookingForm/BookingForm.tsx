@@ -27,10 +27,6 @@ const BookingForm: React.FC<BookingFormProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isScrolled]);
 
-  useEffect(() => {
-    console.log("showbooking", showBookingForm);
-  }, [showBookingForm]);
-
   const handlerSelectPlaces = () => {
     setSelectedNav(true);
   };

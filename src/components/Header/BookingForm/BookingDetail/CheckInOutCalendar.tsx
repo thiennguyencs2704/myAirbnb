@@ -42,12 +42,6 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
     handlerUpdateBookingDate({ startDate, endDate });
   };
 
-  const renderCount = useRef(1);
-  useEffect(() => {
-    renderCount.current += 1;
-    console.log("Render times:", renderCount.current);
-  });
-
   return (
     <>
       <div className="flex w-[195px] h-[36px] absolute z-10 justify-between items-center rounded-full top-10 bg-[#eeeeee]">

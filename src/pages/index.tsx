@@ -3,8 +3,58 @@ import Head from "next/head";
 import ExploreNearby from "../components/Home/ExploreNearby";
 import LiveAnywhere from "../components/Home/LiveAnywhere";
 import FlexibleBanner from "../components/Home/FlexibleBanner";
+import axios from "axios";
+import { GetStaticProps } from "next";
 
-export default function Home() {
+export type NearbyLocation = {
+  img: string;
+  location: string;
+  distance: string;
+};
+
+export type AnywhereCategory = {
+  category: string;
+  img: string;
+};
+
+export interface CardsProps {
+  nearbyLocations?: NearbyLocation[];
+  anywhereCategories?: AnywhereCategory[];
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const URLs = ["/nearby.json", "/anywhere.json"];
+
+  const data = [];
+  for (const url of URLs) {
+    const res = await axios.get(url);
+    const subData = res.data;
+
+    //For handling catch error
+    if (!subData) {
+      return {
+        notFound: true,
+      };
+    }
+
+    data.push(subData);
+  }
+
+  const [nearbyLocations, anywhereCategories] = data;
+
+  return {
+    props: {
+      nearbyLocations: nearbyLocations,
+      anywhereCategories: anywhereCategories,
+    },
+    revalidate: 5,
+  };
+};
+
+const Home: React.FC<CardsProps> = ({
+  nearbyLocations,
+  anywhereCategories,
+}) => {
   return (
     <div className="flex min-h-screen mx-auto">
       <Head>
@@ -14,10 +64,12 @@ export default function Home() {
         ></script>
       </Head>
       <main className="w-full px-6 mx-auto max-w-screen-2xl md:px-14">
-        <ExploreNearby />
+        <ExploreNearby nearbyLocations={nearbyLocations} />
         <FlexibleBanner />
-        <LiveAnywhere />
+        <LiveAnywhere anywhereCategories={anywhereCategories} />
       </main>
     </div>
   );
-}
+};
+
+export default Home;

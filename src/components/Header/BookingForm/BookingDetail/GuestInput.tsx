@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 
 interface GuestInputProps {
   title: string;
@@ -24,11 +24,11 @@ const GuestInput: React.FC<GuestInputProps> = ({
     updateNumber((prev) => prev + 1);
   };
 
-  const renderCount = useRef(1);
-  useEffect(() => {
-    renderCount.current += 1;
-    console.log("Render times:", renderCount.current);
-  });
+  // const renderCount = useRef(1);
+  // useEffect(() => {
+  //   renderCount.current += 1;
+  //   console.log("Render times:", renderCount.current);
+  // });
 
   return (
     <div
