@@ -6,13 +6,23 @@ const Banner = () => {
   return (
     <>
       <div className="relative h-[700px] w-full md:hidden">
-        <Image
+        {/* <Image
           src={
             "https://a0.muscache.com/im/pictures/9754b160-759d-489b-92ad-8846fc94b73d.jpg?im_w=720"
           }
           objectFit="cover"
           layout="fill"
           objectPosition="left bottom"
+          quality={100}
+        /> */}
+        <Image
+          src={
+            "https://a0.muscache.com/im/pictures/9754b160-759d-489b-92ad-8846fc94b73d.jpg?im_w=720"
+          }
+          objectFit="cover"
+          layout="fill"
+          objectPosition="bottom center"
+          quality={100}
         />
 
         <div className="absolute top-[90px] left-1/2 ml-[-140px] text-center flex flex-col h-auto mx-auto">
@@ -28,6 +38,7 @@ const Banner = () => {
           objectFit="cover"
           layout="fill"
           objectPosition="right bottom"
+          quality={100}
         />
 
         <div className="absolute mt-6 top-1/3 left-10">
@@ -43,6 +54,7 @@ const Banner = () => {
           objectFit="cover"
           layout="fill"
           objectPosition="right center"
+          quality={100}
         />
 
         <div className="absolute top-2/5 left-12">
@@ -58,6 +70,7 @@ const Banner = () => {
           objectFit="cover"
           layout="fill"
           objectPosition="right center"
+          quality={100}
         />
 
         <div className="absolute top-1/3 left-20">

@@ -9,13 +9,6 @@ const Header = () => {
     setShowBookingForm,
   } = useHeaderState();
 
-  // import React, { useEffect, useRef } from "react";
-  // const renderCount = useRef(1);
-  // useEffect(() => {
-  //   renderCount.current += 1;
-  //   console.log("Render times:", renderCount.current);
-  // });
-
   return (
     <header className="w-full">
       <div className="fixed left-0 z-10 flex justify-center w-full">
@@ -38,7 +31,7 @@ const Header = () => {
           setShowBookingForm={setShowBookingForm}
         />
       </div>
-      <div>
+      <div className="w-full">
         <Banner />
       </div>
     </header>
