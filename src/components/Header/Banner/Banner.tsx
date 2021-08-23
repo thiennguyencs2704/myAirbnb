@@ -13,7 +13,6 @@ const Banner = () => {
           objectFit="cover"
           layout="fill"
           objectPosition="bottom center"
-          quality={100}
         />
 
         <div className="absolute top-[90px] left-1/2 ml-[-140px] text-center flex flex-col h-auto mx-auto">
@@ -29,7 +28,6 @@ const Banner = () => {
           objectFit="cover"
           layout="fill"
           objectPosition="right bottom"
-          quality={100}
         />
 
         <div className="absolute mt-6 top-1/3 left-10">
@@ -45,7 +43,6 @@ const Banner = () => {
           objectFit="cover"
           layout="fill"
           objectPosition="right center"
-          quality={100}
         />
 
         <div className="absolute top-2/5 left-12">

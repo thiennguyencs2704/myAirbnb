@@ -16,6 +16,7 @@ const DiscoverThings: FC<CardsProps> = ({ discoverThings }) => {
               height={460}
               objectFit="cover"
               className="rounded-lg"
+              objectPosition="top"
             />
             <h2 className="w-10/12 text-base font-semibold md:text-lg">
               {item.title}

@@ -12,7 +12,6 @@ const FlexibleBanner = () => {
           objectFit="cover"
           layout="fill"
           objectPosition="bottom center"
-          quality={100}
         />
       </div>
 

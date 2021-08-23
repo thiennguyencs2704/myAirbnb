@@ -12,7 +12,6 @@ const HostingBanner = () => {
           objectFit="cover"
           layout="fill"
           objectPosition="bottom center"
-          quality={100}
           className="rounded-2xl"
         />
       </div>
@@ -25,7 +24,6 @@ const HostingBanner = () => {
           objectFit="cover"
           layout="fill"
           objectPosition="top center"
-          quality={100}
           className="rounded-2xl"
         />
       </div>
