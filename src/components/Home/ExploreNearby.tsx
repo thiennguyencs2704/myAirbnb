@@ -10,7 +10,9 @@ type nearbyLocation = {
 
 const ExploreNearby = () => {
   const url = "/nearby.json";
-  const { data: nearbyLocation } = useSWR(url);
+  const { data: nearbyLocation, error } = useSWR(url);
+
+  if (error) return <div>Fail to fetch</div>;
 
   return (
     <div className="mt-8">

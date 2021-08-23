@@ -9,7 +9,9 @@ type anywhereCategories = {
 
 const LiveAnywhere = () => {
   const url = "/anywhere.json";
-  const { data: anywhereCategories } = useSWR(url);
+  const { data: anywhereCategories, error } = useSWR(url);
+
+  if (error) return <div>Fail to fetch</div>;
 
   return (
     <div className="mt-10">
