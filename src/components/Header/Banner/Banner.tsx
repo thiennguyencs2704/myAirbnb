@@ -6,15 +6,6 @@ const Banner = () => {
   return (
     <>
       <div className="relative h-[700px] w-full md:hidden">
-        {/* <Image
-          src={
-            "https://a0.muscache.com/im/pictures/9754b160-759d-489b-92ad-8846fc94b73d.jpg?im_w=720"
-          }
-          objectFit="cover"
-          layout="fill"
-          objectPosition="left bottom"
-          quality={100}
-        /> */}
         <Image
           src={
             "https://a0.muscache.com/im/pictures/9754b160-759d-489b-92ad-8846fc94b73d.jpg?im_w=720"

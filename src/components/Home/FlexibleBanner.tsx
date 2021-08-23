@@ -3,7 +3,7 @@ import React from "react";
 
 const FlexibleBanner = () => {
   return (
-    <div className="relative left-0 mt-14 mx-[-88px] sm:mx-0">
+    <div className="relative left-0 mt-14">
       <div className="relative z-0 w-full h-[400px]">
         <Image
           src={
