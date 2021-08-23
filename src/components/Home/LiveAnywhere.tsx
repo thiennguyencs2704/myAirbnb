@@ -1,24 +1,18 @@
 import Image from "next/image";
-import React from "react";
-import useSWR from "swr";
+import React, { FC } from "react";
+import { CardsProps } from "../../pages";
+import { AnywhereCategory } from "../../types/types";
 
-type anywhereCategories = {
-  category: string;
-  img: string;
-};
-
-const LiveAnywhere = () => {
-  const url = "/anywhere.json";
-  const { data: anywhereCategories, error } = useSWR(url);
-
-  if (error) return <div>Fail to fetch</div>;
-
+const LiveAnywhere: FC<CardsProps> = ({ anywhereCategories }) => {
   return (
     <div className="mt-10">
       <h1 className="text-[32px] font-bold">Live anywhere</h1>
-      <div className="flex justify-between space-x-5 mt-[22px]">
-        {anywhereCategories?.map((item: anywhereCategories, i: number) => (
-          <div key={i} className="hover:cursor-pointer">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-[22px]">
+        {anywhereCategories?.map((item: AnywhereCategory, i: number) => (
+          <div
+            key={i}
+            className="hover:cursor-pointer hover:scale-105 hover:duration-75"
+          >
             <Image
               src={item.img}
               width={340}
@@ -26,7 +20,9 @@ const LiveAnywhere = () => {
               objectFit="contain"
               className="rounded-xl"
             />
-            <h2 className="text-lg font-semibold">{item.category}</h2>
+            <h2 className="text-base font-semibold md:text-lg">
+              {item.category}
+            </h2>
           </div>
         ))}
       </div>

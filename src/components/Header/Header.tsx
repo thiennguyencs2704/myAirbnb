@@ -10,7 +10,7 @@ const Header = () => {
   } = useHeaderState();
 
   return (
-    <header className="w-full">
+    <header className="w-full min-w-full">
       <div className="fixed left-0 z-10 flex justify-center w-full">
         <div
           className={`absolute z-10 w-full ${

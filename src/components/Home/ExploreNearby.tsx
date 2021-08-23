@@ -1,27 +1,17 @@
 import Image from "next/image";
-import React from "react";
-import useSWR from "swr";
+import React, { FC } from "react";
+import { CardsProps } from "../../pages";
+import { NearbyLocation } from "../../types/types";
 
-type nearbyLocation = {
-  img: string;
-  location: string;
-  distance: string;
-};
-
-const ExploreNearby = () => {
-  const url = "/nearby.json";
-  const { data: nearbyLocation, error } = useSWR(url);
-
-  if (error) return <div>Fail to fetch</div>;
-
+const ExploreNearby: FC<CardsProps> = ({ nearbyLocations }) => {
   return (
     <div className="mt-8">
       <h1 className="text-[32px] font-bold">Explore nearby</h1>
-      <div className="grid lg:grid-cols-4 lg:grid-rows-2">
-        {nearbyLocation?.map((item: nearbyLocation, i: number) => (
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4">
+        {nearbyLocations?.map((item: NearbyLocation, i: number) => (
           <div
             key={i}
-            className="flex items-center mt-[22px] mr-5 md:mr-10 hover:bg-gray-100 rounded-r-xl hover:shadow-md hover:cursor-pointer hover:scale-105 hover:transform"
+            className="flex items-center mt-[22px] mr-5 md:mr-10 hover:bg-gray-100 rounded-r-xl hover:shadow-md hover:cursor-pointer hover:scale-105 hover:duration-75"
           >
             <Image
               src={item.img}

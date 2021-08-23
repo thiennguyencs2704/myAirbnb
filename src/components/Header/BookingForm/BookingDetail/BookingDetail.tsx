@@ -5,9 +5,14 @@ import Guests from "./Guests";
 import { useClickAway } from "react-use";
 import CheckInOut from "./CheckInOut";
 
-export interface BookingDetailProps {
+interface BookingDetailProps {
   showBookingForm?: boolean;
   selectedNav?: boolean;
+}
+
+export interface BookingInputDetailProps extends BookingDetailProps {
+  focusBookingDetail: () => void;
+  isFocused: boolean;
 }
 
 const BookingDetail: React.FC<BookingDetailProps> = ({

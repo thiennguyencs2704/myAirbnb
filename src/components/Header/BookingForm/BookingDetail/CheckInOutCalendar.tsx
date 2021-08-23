@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import moment from "moment";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
@@ -41,12 +41,6 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
   const handleDatesChange = ({ startDate, endDate }: HandleDatesChange) => {
     handlerUpdateBookingDate({ startDate, endDate });
   };
-
-  const renderCount = useRef(1);
-  useEffect(() => {
-    renderCount.current += 1;
-    console.log("Render times:", renderCount.current);
-  });
 
   return (
     <>
