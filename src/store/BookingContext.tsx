@@ -1,7 +1,7 @@
 import React, { createContext, useState } from "react";
 
 export interface BookingInfo {
-  location?: string | null;
+  location?: string;
   checkInDate?: string | null;
   checkOutDate?: string | null;
   guests?: number;
@@ -10,13 +10,12 @@ export interface BookingInfo {
 interface BookingContext {
   bookingInfo: BookingInfo;
   handlerUpdateBookingInfo: (info: BookingInfo) => void;
-  handlerClearGuests: () => void;
 }
 
 export const BookingContext = createContext<BookingContext | null>(null);
 
 const initialState: BookingInfo = {
-  location: null,
+  location: "",
   checkInDate: null,
   checkOutDate: null,
   guests: 0,
@@ -29,14 +28,9 @@ const BookingContextProvider: React.FC = ({ children }) => {
     setBookingInfo({ ...bookingInfo, ...info });
   };
 
-  const handlerClearGuests = () => {
-    setBookingInfo({ ...bookingInfo, guests: 0 });
-  };
-
   const contextValue: BookingContext = {
     bookingInfo,
     handlerUpdateBookingInfo,
-    handlerClearGuests,
   };
   return (
     <BookingContext.Provider value={contextValue}>
