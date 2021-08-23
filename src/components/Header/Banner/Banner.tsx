@@ -5,7 +5,7 @@ import BannerInfo from "./BannerInfo";
 const Banner = () => {
   return (
     <>
-      <div className="relative h-[700px] w-full md:hidden">
+      <div className="relative h-[550px] w-full md:hidden">
         <Image
           src={
             "https://a0.muscache.com/im/pictures/9754b160-759d-489b-92ad-8846fc94b73d.jpg?im_w=720"

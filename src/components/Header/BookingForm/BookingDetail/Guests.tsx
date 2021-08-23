@@ -1,14 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { useClickAway } from "react-use";
-import { BookingInputDetailProps } from "./Location";
 import GuestInput from "./GuestInput";
 import ClearDataButton from "../../../UI/ClearDataButton";
+import { BookingInputDetailProps } from "./BookingDetail";
 
-interface GuestProps extends BookingInputDetailProps {
-  isFocused: boolean;
-}
-
-const Guests: React.FC<GuestProps> = ({
+const Guests: FC<BookingInputDetailProps> = ({
   focusBookingDetail,
   isFocused,
   showBookingForm,

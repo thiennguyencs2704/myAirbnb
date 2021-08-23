@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React, { FC } from "react";
-import { CardsProps, NearbyLocation } from "../../pages";
+import { CardsProps } from "../../pages";
+import { NearbyLocation } from "../../types/types";
 
 const ExploreNearby: FC<CardsProps> = ({ nearbyLocations }) => {
   return (
@@ -10,7 +11,7 @@ const ExploreNearby: FC<CardsProps> = ({ nearbyLocations }) => {
         {nearbyLocations?.map((item: NearbyLocation, i: number) => (
           <div
             key={i}
-            className="flex items-center mt-[22px] mr-5 md:mr-10 hover:bg-gray-100 rounded-r-xl hover:shadow-md hover:cursor-pointer hover:scale-105 hover:transform"
+            className="flex items-center mt-[22px] mr-5 md:mr-10 hover:bg-gray-100 rounded-r-xl hover:shadow-md hover:cursor-pointer hover:scale-105 hover:duration-75"
           >
             <Image
               src={item.img}

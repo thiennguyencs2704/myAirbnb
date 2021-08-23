@@ -1,18 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 import { useClickAway } from "react-use";
-import { BookingDetailProps } from "./BookingDetail";
+import { BookingInputDetailProps } from "./BookingDetail";
 import { LocationMarkerIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import PlacesAutocomplete from "react-places-autocomplete";
 import Link from "next/link";
 import ClearDataButton from "../../../UI/ClearDataButton";
 
-export interface BookingInputDetailProps extends BookingDetailProps {
-  focusBookingDetail: () => void;
-  isFocused: boolean;
-}
-
-const Location: React.FC<BookingInputDetailProps> = ({
+const Location: FC<BookingInputDetailProps> = ({
   isFocused,
   focusBookingDetail,
   showBookingForm,

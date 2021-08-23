@@ -1,31 +1,26 @@
-/* eslint-disable @next/next/no-sync-scripts */
 import React from "react";
-import Head from "next/head";
 import ExploreNearby from "../components/Home/ExploreNearby";
 import LiveAnywhere from "../components/Home/LiveAnywhere";
 import FlexibleBanner from "../components/Home/FlexibleBanner";
 import axios from "axios";
 import { GetStaticProps } from "next";
 import Script from "next/script";
-
-export type NearbyLocation = {
-  img: string;
-  location: string;
-  distance: string;
-};
-
-export type AnywhereCategory = {
-  category: string;
-  img: string;
-};
+import HostingBanner from "../components/Home/HostingBanner";
+import DiscoverThings from "../components/Home/DiscoverThings";
+import {
+  AnywhereCategory,
+  DiscoverThing,
+  NearbyLocation,
+} from "../types/types";
 
 export interface CardsProps {
   nearbyLocations?: NearbyLocation[];
   anywhereCategories?: AnywhereCategory[];
+  discoverThings?: DiscoverThing[];
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const URLs = ["/nearby.json", "/anywhere.json"];
+  const URLs = ["/nearby.json", "/anywhere.json", "/discovery.json"];
 
   const data = [];
   for (const url of URLs) {
@@ -42,12 +37,13 @@ export const getStaticProps: GetStaticProps = async () => {
     data.push(subData);
   }
 
-  const [nearbyLocations, anywhereCategories] = data;
+  const [nearbyLocations, anywhereCategories, discoverThings] = data;
 
   return {
     props: {
       nearbyLocations: nearbyLocations,
       anywhereCategories: anywhereCategories,
+      discoverThings: discoverThings,
     },
   };
 };
@@ -55,6 +51,7 @@ export const getStaticProps: GetStaticProps = async () => {
 const Home: React.FC<CardsProps> = ({
   nearbyLocations,
   anywhereCategories,
+  discoverThings,
 }) => {
   return (
     <div className="flex min-h-screen mx-auto">
@@ -66,6 +63,8 @@ const Home: React.FC<CardsProps> = ({
         <ExploreNearby nearbyLocations={nearbyLocations} />
         <FlexibleBanner />
         <LiveAnywhere anywhereCategories={anywhereCategories} />
+        <HostingBanner />
+        <DiscoverThings discoverThings={discoverThings} />
       </main>
     </div>
   );

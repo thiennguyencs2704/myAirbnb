@@ -1,9 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 import { UserCircleIcon } from "@heroicons/react/solid";
 import { GlobeAltIcon, MenuIcon } from "@heroicons/react/outline";
 import { useClickAway } from "react-use";
 
-const AuthNav: React.FC = () => {
+interface AuthProps {
+  isScrolled: boolean;
+}
+
+const AuthNav: FC<AuthProps> = ({ isScrolled }) => {
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -14,18 +18,26 @@ const AuthNav: React.FC = () => {
   return (
     <>
       <div className="absolute z-30 flex items-center space-x-2 right-12 xl:right-16 whitespace-nowrap">
-        <button className="hover:bg-white/20 rounded-full h-[42px] px-3 -mr-3">
+        <button
+          className={`rounded-full h-[42px] px-3 -mr-3 ${
+            isScrolled ? "hover:bg-gray-100/90" : "hover:bg-white/20"
+          }`}
+        >
           <p>Become a host</p>
         </button>
 
-        <button className="h-[42px] px-[12px] rounded-full hover:bg-white/20">
+        <button
+          className={`h-[42px] px-[12px] rounded-full ${
+            isScrolled ? "hover:bg-gray-100/90" : "hover:bg-white/20"
+          }`}
+        >
           <GlobeAltIcon className="w-5 h-5 rounded-full" />
         </button>
 
         <div ref={menuRef}>
           <button
             onClick={() => setShowMenu(!showMenu)}
-            className="h-[42px] w-[77px] flex items-center justify-between border border-gray-300 shadow-md rounded-full text-gray-500 bg-white hover:bg-gray-100"
+            className="h-[42px] w-[77px] flex items-center justify-between border border-gray-300 shadow-md rounded-full text-gray-500 bg-white hover:bg-gray-100/90"
           >
             <MenuIcon className="w-5 h-5 ml-2" />
             <UserCircleIcon className="h-9 w-9 mr-[6px]" />

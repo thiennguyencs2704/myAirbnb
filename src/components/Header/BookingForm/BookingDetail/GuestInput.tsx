@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 
 interface GuestInputProps {
   title: string;
@@ -9,7 +9,7 @@ interface GuestInputProps {
   atLeastOneAdult?: boolean;
 }
 
-const GuestInput: React.FC<GuestInputProps> = ({
+const GuestInput: FC<GuestInputProps> = ({
   title,
   age,
   border,

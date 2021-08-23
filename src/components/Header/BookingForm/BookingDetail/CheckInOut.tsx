@@ -1,16 +1,12 @@
 import moment from "moment";
-import React, { useEffect, useRef, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { FocusedInputShape } from "react-dates";
 import { useClickAway } from "react-use";
 import ClearDataButton from "../../../UI/ClearDataButton";
+import { BookingInputDetailProps } from "./BookingDetail";
 import CheckInOutCalendar, { HandleDatesChange } from "./CheckInOutCalendar";
-import { BookingInputDetailProps } from "./Location";
 
-interface CheckInOutProps extends BookingInputDetailProps {
-  isFocused: boolean;
-}
-
-const CheckInOut: React.FC<CheckInOutProps> = ({
+const CheckInOut: FC<BookingInputDetailProps> = ({
   isFocused,
   focusBookingDetail,
   showBookingForm,

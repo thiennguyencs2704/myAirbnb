@@ -119,7 +119,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
           </form>
         </div>
 
-        <AuthNav />
+        <AuthNav isScrolled={isScrolled} />
       </div>
     </div>
   );
