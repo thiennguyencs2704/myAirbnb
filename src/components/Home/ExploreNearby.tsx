@@ -6,7 +6,7 @@ const ExploreNearby: FC<CardsProps> = ({ nearbyLocations }) => {
   return (
     <div className="mt-8">
       <h1 className="text-[32px] font-bold">Explore nearby</h1>
-      <div className="grid lg:grid-cols-4 lg:grid-rows-2">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4">
         {nearbyLocations?.map((item: NearbyLocation, i: number) => (
           <div
             key={i}
