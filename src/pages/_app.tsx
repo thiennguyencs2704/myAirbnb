@@ -7,6 +7,8 @@ import "react-dates/lib/css/_datepicker.css";
 import "../styles/calendar.css";
 import BookingContextProvider from "../store/BookingContext";
 
+axios.defaults.baseURL = "https://my-airbnb-61fcc-default-rtdb.firebaseio.com";
+
 const fetcher = async (url: string) => {
   const res = await axios(url);
   return res.data;

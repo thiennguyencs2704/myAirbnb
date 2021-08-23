@@ -116,7 +116,7 @@ const Location: React.FC<BookingInputDetailProps> = ({
               <Link href="/">
                 <a>
                   <div className="flex items-center justify-between w-10/12 mx-auto shadow-lg border border-gray-300 h-14 rounded-[30px] px-6 pb-1 mb-4">
-                    <p className="text-xl font-medium text-[#ad68c3]">
+                    <p className="text-xl font-medium bg-clip-text text-transparent bg-gradient-to-r from-[#8d2cad] via-[#ac1985] to-[#da7c46]">
                       {"I'm flexible"}
                     </p>
 
@@ -163,38 +163,3 @@ const Location: React.FC<BookingInputDetailProps> = ({
 };
 
 export default Location;
-
-{
-  /* Popup for booking experiences */
-}
-{
-  /* {focusLocation && !selectedNav && location.length === 0 && (
-        <div>
-          <div
-            className={`absolute flex flex-col left-0 justify-center space-y-5 top-[76px] bg-white rounded-[32px] transform-none shadow-xl ${
-              showBookingForm
-                ? "w-[500px] h-[96px] duration-100"
-                : "w-0 h-0 invisible"
-            }`}
-          >
-            <Link href="/">
-              <a>
-                <div className="flex items-center w-[498px] hover:bg-gray-100 pl-8 h-14 [30px] pb-1 ml-[1px] rounded-lg pt-1">
-                  <Image
-                    src={
-                      "https://a0.muscache.com/im/pictures/fc42dde0-36a7-460e-af89-10b5e44e48d8.jpg?im_w=240&im_q=lowq"
-                    }
-                    height={48}
-                    width={48}
-                    objectFit="contain"
-                    className="rounded-lg"
-                    quality={100}
-                  />
-                  <p className="ml-3 text-lg font-normal">Nearby</p>
-                </div>
-              </a>
-            </Link>
-          </div>
-        </div>
-      )} */
-}

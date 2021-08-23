@@ -25,7 +25,7 @@ const CheckInOut: React.FC<CheckInOutProps> = ({
   const [checkInDate, setCheckInDate] = useState<moment.Moment | null>(null);
   const [checkOutDate, setCheckOutDate] = useState<moment.Moment | null>(null);
   const [focusedDateInput, setFocusedDateInput] =
-    useState<FocusedInputShape | null>("startDate");
+    useState<FocusedInputShape | null>(null);
 
   const handlerCheckInClick = () => {
     setFocusCheckIn(true);
@@ -46,6 +46,7 @@ const CheckInOut: React.FC<CheckInOutProps> = ({
     setShowCalendar(true);
     if (focusedDateInput === "startDate") setFocusedDateInput("startDate");
     if (focusedDateInput === "endDate") setFocusedDateInput("endDate");
+    if (!checkInDate && !checkOutDate) setFocusedDateInput("startDate");
   };
 
   useClickAway(calendarRef, () => {
