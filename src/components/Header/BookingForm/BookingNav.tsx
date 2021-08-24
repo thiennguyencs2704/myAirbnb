@@ -5,6 +5,7 @@ interface BookingNavProps {
   onSelectExperiences: (e: { preventDefault: () => void }) => void;
   selectedNav: boolean;
   showBookingForm: boolean;
+  isScrolled: boolean;
 }
 
 const BookingNav: React.FC<BookingNavProps> = ({
@@ -12,6 +13,7 @@ const BookingNav: React.FC<BookingNavProps> = ({
   onSelectExperiences,
   selectedNav,
   showBookingForm,
+  isScrolled,
 }) => {
   return (
     <div
@@ -23,8 +25,12 @@ const BookingNav: React.FC<BookingNavProps> = ({
         <span
           className={`bookingNav ${
             selectedNav
-              ? "after:border-white"
-              : "after:border-transparent bookingNavHover"
+              ? isScrolled
+                ? "after:border-gray-800"
+                : "after:border-white"
+              : isScrolled
+              ? "after:border-transparent bookingNavHover-black"
+              : "after:border-transparent bookingNavHover-white"
           }`}
         >
           Places to stay
@@ -39,8 +45,12 @@ const BookingNav: React.FC<BookingNavProps> = ({
         <span
           className={`bookingNav ${
             !selectedNav
-              ? "after:border-white"
-              : "after:border-transparent bookingNavHover"
+              ? isScrolled
+                ? "after:border-gray-800"
+                : "after:border-white"
+              : isScrolled
+              ? "after:border-transparent bookingNavHover-black"
+              : "after:border-transparent bookingNavHover-white"
           }`}
         >
           Experiences
@@ -48,7 +58,13 @@ const BookingNav: React.FC<BookingNavProps> = ({
       </button>
 
       <button type="button" className="relative p-3">
-        <span className="bookingNavHover bookingNav after:border-transparent">
+        <span
+          className={`bookingNav ${
+            isScrolled
+              ? "after:border-transparent bookingNavHover-black"
+              : "after:border-transparent bookingNavHover-white"
+          }`}
+        >
           Online Experiences
         </span>
       </button>

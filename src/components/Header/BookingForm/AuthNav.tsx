@@ -44,7 +44,7 @@ const AuthNav: FC<AuthProps> = ({ isScrolled }) => {
           </button>
 
           {showMenu && (
-            <div className="absolute z-30 shadow-lg rounded-xl right-0 top-[52px] w-[240px] h-auto text-gray-900 bg-white py-2">
+            <div className="absolute z-30 shadow-lg rounded-xl right-0 top-[52px] w-[240px] h-auto text-gray-900 bg-white py-2 border border-gray-200">
               <div className="grid w-full grid-rows-2 pb-2">
                 <a className="authMenu">Sign up</a>
                 <a className="authMenu">Log in</a>

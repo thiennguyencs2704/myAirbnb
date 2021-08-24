@@ -110,6 +110,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
               onSelectExperiences={handlerSelectExperiences}
               selectedNav={selectedNav}
               showBookingForm={showBookingForm}
+              isScrolled={isScrolled}
             />
 
             <BookingDetail

@@ -11,7 +11,7 @@ button {
 @layer components {
   /* For Header */
   .authMenu {
-    @apply w-full h-10 pt-[7px] pl-3 hover:bg-gray-100;
+    @apply w-full h-10 pt-[7px] pl-3 hover:bg-gray-100 hover:cursor-pointer;
   }
 
   .bookingInput-Container {
@@ -46,8 +46,12 @@ button {
     @apply after:absolute after:top-10 after:left-1/2 after:ml-[-10px] after:border after:w-5 after:transform after:duration-200;
   }
 
-  .bookingNavHover {
+  .bookingNavHover-white {
     @apply hover:after:border-white/50 hover:text-white/50 hover:after:w-2 hover:after:ml-[-6px];
+  }
+
+  .bookingNavHover-black {
+    @apply hover:after:border-black/50 hover:text-black/50 hover:after:w-2 hover:after:ml-[-6px];
   }
 
   /* For Input */
