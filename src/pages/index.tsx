@@ -61,6 +61,7 @@ const Home: React.FC<CardsProps> = ({
           src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB3p_GqRnG15VxQoZ7auxNg8dxbJOEEu94&libraries=places"
           strategy="beforeInteractive"
         />
+
         <main className="w-full px-6 mx-auto max-w-screen-2xl md:px-14">
           <ExploreNearby nearbyLocations={nearbyLocations} />
           <FlexibleBanner />
