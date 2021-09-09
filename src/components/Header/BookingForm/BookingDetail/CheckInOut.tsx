@@ -4,7 +4,7 @@ import { FocusedInputShape } from "react-dates";
 import { useClickAway } from "react-use";
 import ClearDataButton from "../../../UI/ClearDataButton";
 import { BookingInputDetailProps } from "./BookingDetail";
-import CheckInOutCalendar, { HandleDatesChange } from "./CheckInOutCalendar";
+import CheckInOutCalendar, { HandlerDatesChange } from "./CheckInOutCalendar";
 
 const CheckInOut: FC<BookingInputDetailProps> = ({
   isFocused,
@@ -71,7 +71,7 @@ const CheckInOut: FC<BookingInputDetailProps> = ({
   const handlerUpdateBookingDate = ({
     startDate,
     endDate,
-  }: HandleDatesChange) => {
+  }: HandlerDatesChange) => {
     setCheckInDate(startDate);
     setCheckOutDate(endDate);
   };

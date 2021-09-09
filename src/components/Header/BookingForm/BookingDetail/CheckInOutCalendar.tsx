@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import moment from "moment";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
@@ -9,7 +9,7 @@ import {
 } from "react-dates";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
 
-export interface HandleDatesChange {
+export interface HandlerDatesChange {
   startDate: moment.Moment | null;
   endDate: moment.Moment | null;
 }
@@ -19,7 +19,10 @@ interface CalendarProps {
   onFocusChange: (focusedDateInput: FocusedInputShape | null) => void;
   checkInDate: moment.Moment | null;
   checkOutDate: moment.Moment | null;
-  handlerUpdateBookingDate: ({ startDate, endDate }: HandleDatesChange) => void;
+  handlerUpdateBookingDate: ({
+    startDate,
+    endDate,
+  }: HandlerDatesChange) => void;
 }
 
 const CheckInOutCalendar: React.FC<CalendarProps> = ({
@@ -30,6 +33,7 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
   handlerUpdateBookingDate,
 }) => {
   const [calendarToggle, setCalendarToggle] = useState(true);
+  const [today, setToday] = useState(moment());
 
   const handlerCalendarMode = () => {
     setCalendarToggle(true);
@@ -38,9 +42,19 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
     setCalendarToggle(false);
   };
 
-  const handleDatesChange = ({ startDate, endDate }: HandleDatesChange) => {
+  const handlerDatesChange = ({ startDate, endDate }: HandlerDatesChange) => {
     handlerUpdateBookingDate({ startDate, endDate });
   };
+
+  //For updating isOutsideRange in DayPickerRangeController
+  const handlerUpdateDate = useCallback(() => {
+    setToday(moment());
+  }, [today.date()]);
+
+  useEffect(() => {
+    const timeInterval = setInterval(handlerUpdateDate, 1000 * 60 * 60 * 24);
+    return () => clearInterval(timeInterval);
+  }, [handlerUpdateDate]);
 
   return (
     <>
@@ -69,7 +83,7 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
       <DayPickerRangeController
         startDate={checkInDate}
         endDate={checkOutDate}
-        onDatesChange={handleDatesChange}
+        onDatesChange={handlerDatesChange}
         focusedInput={focusedDateInput}
         onFocusChange={onFocusChange}
         numberOfMonths={2}
@@ -81,7 +95,7 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
           <ChevronRightIcon className="absolute self-center w-7 h-7 mt-5 hover:bg-gray-200 hover:rounded-full pl-[2px] ml-1" />
         }
         keepOpenOnDateSelect
-        isOutsideRange={(day) => !isInclusivelyAfterDay(day, moment())}
+        isOutsideRange={(day) => !isInclusivelyAfterDay(day, today)}
       />
     </>
   );

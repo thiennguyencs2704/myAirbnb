@@ -1,4 +1,5 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
+import useSWR from "swr";
 
 export interface BookingInfo {
   location?: string;
@@ -23,6 +24,13 @@ const initialState: BookingInfo = {
 
 const BookingContextProvider: React.FC = ({ children }) => {
   const [bookingInfo, setBookingInfo] = useState(initialState);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const { data } = useSWR(mounted ? "/anywhere.json" : null);
 
   const handlerUpdateBookingInfo = (info: BookingInfo) => {
     setBookingInfo({ ...bookingInfo, ...info });

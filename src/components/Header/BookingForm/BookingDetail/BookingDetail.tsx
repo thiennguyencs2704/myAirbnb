@@ -19,7 +19,7 @@ const BookingDetail: React.FC<BookingDetailProps> = ({
   showBookingForm,
   selectedNav,
 }) => {
-  const bookingDetailRef = useRef<HTMLDivElement>(null);
+  const bookingDetailRef = useRef<HTMLFormElement>(null);
   const [isFocused, setIsFocused] = useState(false);
 
   const handlerIsFocused = () => {
@@ -29,7 +29,8 @@ const BookingDetail: React.FC<BookingDetailProps> = ({
   useClickAway(bookingDetailRef, () => setIsFocused(false));
 
   return (
-    <div
+    // <>
+    <form
       ref={bookingDetailRef}
       className={`bookingInput-Container ${isFocused ? "bg-gray-100" : ""} ${
         showBookingForm
@@ -37,6 +38,7 @@ const BookingDetail: React.FC<BookingDetailProps> = ({
           : "lg:w-80 md:w-64 h-12 transform ease-in whitespace-nowrap lg:-ml-0 -ml-32 -translate-y-16 duration-150"
       }`}
     >
+      {/* <form className="flex w-full h-full"> */}
       <div className={`${selectedNav ? "w-1/4" : "w-1/2"} h-full`}>
         <Location
           focusBookingDetail={handlerIsFocused}
@@ -81,7 +83,9 @@ const BookingDetail: React.FC<BookingDetailProps> = ({
           Search
         </p>
       </button>
-    </div>
+      {/* </form> */}
+    </form>
+    // </>
   );
 };
 

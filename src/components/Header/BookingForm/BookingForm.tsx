@@ -39,6 +39,18 @@ const BookingForm: React.FC<BookingFormProps> = ({
     setShowBookingForm(true);
   };
 
+  // const handlerSubmit = (
+  //   e: { preventDefault: () => void },
+  //   inputRef: React.RefObject<HTMLInputElement>
+  // ) => {
+  //   e.preventDefault();
+  //   if (inputRef.current?.value.length === 0) {
+  //     inputRef.current.focus();
+  //   } else {
+  //     console.log("Searching...!");
+  //   }
+  // };
+
   useClickAway(bookingFormRef, () => {
     if (isScrolled) setShowBookingForm(false);
   });
@@ -100,11 +112,11 @@ const BookingForm: React.FC<BookingFormProps> = ({
           ${
             showBookingForm
               ? "z-20 md:top-12 lg:top-0 duration-150"
-              : "z-0 top-0 duration-150 ease-in opacity-0"
+              : "z-0 top-0 duration-150 ease-in"
           }
           `}
         >
-          <form className="absolute left-0 flex flex-col items-center justify-center w-full group ">
+          <div className="absolute left-0 flex flex-col items-center justify-center w-full group ">
             <BookingNav
               onSelectPlaces={handlerSelectPlaces}
               onSelectExperiences={handlerSelectExperiences}
@@ -117,7 +129,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
               showBookingForm={showBookingForm}
               selectedNav={selectedNav}
             />
-          </form>
+          </div>
         </div>
 
         <AuthNav isScrolled={isScrolled} />
