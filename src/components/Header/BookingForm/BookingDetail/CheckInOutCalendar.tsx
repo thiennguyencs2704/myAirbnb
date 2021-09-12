@@ -49,10 +49,10 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
   //For updating isOutsideRange in DayPickerRangeController
   const handlerUpdateDate = useCallback(() => {
     setToday(moment());
-  }, [today.date()]);
+  }, [today]);
 
   useEffect(() => {
-    const timeInterval = setInterval(handlerUpdateDate, 1000 * 60 * 60 * 24);
+    const timeInterval = setInterval(handlerUpdateDate, 1000);
     return () => clearInterval(timeInterval);
   }, [handlerUpdateDate]);
 
