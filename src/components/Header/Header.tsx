@@ -1,40 +1,37 @@
-import React, { useState, useEffect } from "react";
-import Banner from "./Banner";
-import BookingForm from "./BookingForm";
+import useHeaderState from "../../hooks/useHeaderState";
+import Banner from "./Banner/Banner";
+import BookingForm from "./BookingForm/BookingForm";
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handlerScrollY = () => {
-      setScrollY(window.scrollY);
-      if (scrollY >= 20) {
-        setIsScrolled(true);
-      }
-      if (scrollY < 10) {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handlerScrollY);
-    return () => {
-      window.removeEventListener("scroll", handlerScrollY);
-    };
-  }, [isScrolled, scrollY]);
+  const {
+    headerState: isScrolled,
+    showBookingForm,
+    setShowBookingForm,
+  } = useHeaderState();
 
   return (
-    <header className="w-full">
+    <header className="w-full min-w-full">
       <div className="fixed left-0 z-10 flex justify-center w-full">
         <div
-          className={`absolute w-full h-20 ${
+          className={`absolute z-10 w-full ${
+            showBookingForm && isScrolled
+              ? "h-44 duration-150"
+              : "h-20 duration-150 ease-out"
+          } 
+          ${
             isScrolled
-              ? "bg-white duration-200"
-              : "bg-gradient-to-b from-gray-900 to-transparent"
-          }`}
+              ? "bg-white"
+              : "bg-gradient-to-b from-gray-900 to-transparent transition-none"
+          }
+          `}
         />
-        <BookingForm isScrolled={isScrolled} />
+        <BookingForm
+          isScrolled={isScrolled}
+          showBookingForm={showBookingForm}
+          setShowBookingForm={setShowBookingForm}
+        />
       </div>
-      <div>
+      <div className="w-full">
         <Banner />
       </div>
     </header>
