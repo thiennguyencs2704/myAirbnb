@@ -84,9 +84,9 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
           <ChevronRightIcon className="absolute self-center w-7 h-7 mt-5 hover:bg-gray-200 hover:rounded-full pl-[2px] ml-1" />
         }
         keepOpenOnDateSelect
-        isDayBlocked={(day) =>
-          isInclusivelyBeforeDay(day, moment().subtract(1, "days"))
-        }
+        // isDayBlocked={(day) =>
+        //   isInclusivelyBeforeDay(day, moment().subtract(1, "days"))
+        // }
         isOutsideRange={(day) => {
           console.log("check moment", moment());
           return isInclusivelyBeforeDay(day, moment().subtract(1, "days"));
