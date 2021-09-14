@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import moment from "moment";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
@@ -35,7 +35,12 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
   const [calendarToggle, setCalendarToggle] = useState(true);
   const [today, setToday] = useState(moment().subtract(1, "days"));
 
-  console.log("today", today);
+  console.log("before", today);
+
+  useEffect(() => {
+    setToday(moment().subtract(1, "days"));
+    console.log("after", today);
+  }, []);
 
   const handlerCalendarMode = () => {
     setCalendarToggle(true);
@@ -87,13 +92,9 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
           <ChevronRightIcon className="absolute self-center w-7 h-7 mt-5 hover:bg-gray-200 hover:rounded-full pl-[2px] ml-1" />
         }
         keepOpenOnDateSelect
-        // isDayBlocked={(day) =>
-        //   isInclusivelyBeforeDay(day, moment().subtract(1, "days"))
-        // }
-        isOutsideRange={(day) => {
-          console.log("check moment", moment());
-          return isInclusivelyBeforeDay(day, moment().subtract(1, "days"));
-        }}
+        isOutsideRange={(day) =>
+          isInclusivelyBeforeDay(day, moment().subtract(1, "days"))
+        }
       />
     </>
   );
