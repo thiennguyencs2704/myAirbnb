@@ -5,7 +5,7 @@ import "react-dates/lib/css/_datepicker.css";
 import {
   DayPickerRangeController,
   FocusedInputShape,
-  isInclusivelyBeforeDay,
+  isInclusivelyAfterDay,
 } from "react-dates";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
 
@@ -33,14 +33,6 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
   handlerUpdateBookingDate,
 }) => {
   const [calendarToggle, setCalendarToggle] = useState(true);
-  const [today, setToday] = useState(moment().subtract(1, "days"));
-
-  console.log("before", today);
-
-  useEffect(() => {
-    setToday(moment().subtract(1, "days"));
-    console.log("after", today);
-  }, []);
 
   const handlerCalendarMode = () => {
     setCalendarToggle(true);
@@ -51,6 +43,11 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
 
   const handlerDatesChange = ({ startDate, endDate }: HandlerDatesChange) => {
     handlerUpdateBookingDate({ startDate, endDate });
+  };
+
+  const getOutsideDateRange = (day: moment.Moment) => {
+    const today = moment();
+    return !isInclusivelyAfterDay(day, today);
   };
 
   return (
@@ -77,11 +74,16 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
         </button>
       </div>
 
+      <p>
+        {moment().month()}/{moment().date()}/{moment().hour()}/
+        {moment().minute()}/{moment().second()}/{moment().millisecond()}
+      </p>
+
       <DayPickerRangeController
         startDate={checkInDate}
         endDate={checkOutDate}
-        onDatesChange={handlerDatesChange}
         focusedInput={focusedDateInput}
+        onDatesChange={handlerDatesChange}
         onFocusChange={onFocusChange}
         numberOfMonths={2}
         initialVisibleMonth={() => moment()}
@@ -92,9 +94,7 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
           <ChevronRightIcon className="absolute self-center w-7 h-7 mt-5 hover:bg-gray-200 hover:rounded-full pl-[2px] ml-1" />
         }
         keepOpenOnDateSelect
-        isOutsideRange={(day) =>
-          isInclusivelyBeforeDay(day, moment().subtract(1, "days"))
-        }
+        isOutsideRange={getOutsideDateRange}
       />
     </>
   );
