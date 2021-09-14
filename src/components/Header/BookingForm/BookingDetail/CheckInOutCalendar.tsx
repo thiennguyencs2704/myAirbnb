@@ -74,11 +74,6 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
         </button>
       </div>
 
-      <p>
-        {moment().month()}/{moment().date()}/{moment().hour()}/
-        {moment().minute()}/{moment().second()}/{moment().millisecond()}
-      </p>
-
       <DayPickerRangeController
         startDate={checkInDate}
         endDate={checkOutDate}
