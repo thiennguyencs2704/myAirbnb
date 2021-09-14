@@ -33,6 +33,9 @@ const CheckInOutCalendar: React.FC<CalendarProps> = ({
   handlerUpdateBookingDate,
 }) => {
   const [calendarToggle, setCalendarToggle] = useState(true);
+  const [today, setToday] = useState(moment().subtract(1, "days"));
+
+  console.log("today", today);
 
   const handlerCalendarMode = () => {
     setCalendarToggle(true);
